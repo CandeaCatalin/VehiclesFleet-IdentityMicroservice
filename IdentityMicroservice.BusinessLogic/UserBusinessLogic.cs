@@ -37,6 +37,6 @@ public class UserBusinessLogic : IUserBusinessLogic
         await registerDto.ValidateAndThrow();
         var token = await userRepository.Register(registerDto);
         
-        await loggerService.LogInfo($"New user was registered successfully!","token");
+        await loggerService.LogInfo($"New user was registered successfully!",token);
     }
 }
