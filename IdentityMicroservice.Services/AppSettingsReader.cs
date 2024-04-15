@@ -1,7 +1,7 @@
+using IdentityMicroservice.Services.Contracts;
 using Microsoft.Extensions.Configuration;
-using VehiclesFleet.Services.Contracts;
 
-namespace VehiclesFleet.Services;
+namespace IdentityMicroservice.Services;
 
 public class AppSettingsReader : IAppSettingsReader
 {

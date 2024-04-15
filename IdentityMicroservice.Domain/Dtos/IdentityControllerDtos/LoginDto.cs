@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using VehiclesFleet.Domain.Dtos.Validators.IdentityDtoValidators;
+using IdentityMicroservice.Domain.Dtos.Validators.IdentityDtoValidators;
 
-namespace VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
+namespace IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
 
 public class LoginDto
 {

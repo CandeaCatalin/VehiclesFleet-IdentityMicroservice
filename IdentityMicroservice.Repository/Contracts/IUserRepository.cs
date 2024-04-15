@@ -1,12 +1,12 @@
-﻿using VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
-using VehiclesFleet.Domain.Models.Identity;
+﻿using IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
+using IdentityMicroservice.Domain.Models.Identity;
 
-namespace VehiclesFleet.Repository.Contracts;
+namespace IdentityMicroservice.Repository.Contracts;
 
 public interface IUserRepository
 {
     public Task<string> Login(LoginDto loginDto);
-    public Task Register(RegisterDto registerDto);
+    public Task<string> Register(RegisterDto registerDto);
 
     public Task<List<User>> GetAllUsers();
 }

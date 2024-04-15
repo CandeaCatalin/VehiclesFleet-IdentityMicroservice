@@ -1,7 +1,7 @@
-using VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
-using VehiclesFleet.Domain.Models.Identity;
+using IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
+using IdentityMicroservice.Domain.Models.Identity;
 
-namespace VehiclesFleet.BusinessLogic.Contracts;
+namespace IdentityMicroservice.BusinessLogic.Contracts;
 
 public interface IUserBusinessLogic
 {

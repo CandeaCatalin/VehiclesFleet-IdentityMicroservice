@@ -6,4 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\IdentityMicroservice.Domain\IdentityMicroservice.Domain.csproj" />
+      <ProjectReference Include="..\IdentityMicroservice.Repository\IdentityMicroservice.Repository.csproj" />
+      <ProjectReference Include="..\IdentityMicroservice.Services\IdentityMicroservice.Services.csproj" />
+    </ItemGroup>
+
 </Project>

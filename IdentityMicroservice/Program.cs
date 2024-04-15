@@ -1,5 +1,5 @@
-using VehiclesFleet.DI;
-using VehiclesFleet.Middleware;
+using IdentityMicroservice.DI;
+using IdentityMicroservice.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

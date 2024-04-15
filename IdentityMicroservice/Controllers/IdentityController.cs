@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using IdentityMicroservice.BusinessLogic.Contracts;
+using IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using VehiclesFleet.BusinessLogic.Contracts;
-using VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
 
-namespace VehiclesFleet.Controllers;
+namespace IdentityMicroservice.Controllers;
 
 [ApiController]
 [Route("auth")]

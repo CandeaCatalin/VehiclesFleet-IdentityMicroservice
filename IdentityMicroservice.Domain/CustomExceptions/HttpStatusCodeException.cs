@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace VehiclesFleet.Domain.CustomExceptions;
+namespace IdentityMicroservice.Domain.CustomExceptions;
 
 [Serializable]
 public class HttpStatusCodeException : Exception

@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using FluentValidation;
-using VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
+using IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
 
-namespace VehiclesFleet.Domain.Dtos.Validators.IdentityDtoValidators;
+namespace IdentityMicroservice.Domain.Dtos.Validators.IdentityDtoValidators;
 
 public class RegisterDtoValidator : AbstractValidator<RegisterDto>
 {

@@ -1,4 +1,4 @@
-namespace VehiclesFleet.Services.Contracts;
+namespace IdentityMicroservice.Services.Contracts;
 
 public interface IAppSettingsReader
 {

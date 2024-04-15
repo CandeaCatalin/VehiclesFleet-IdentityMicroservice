@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using IdentityMicroservice.DataAccess;
+using IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
+using IdentityMicroservice.Repository.Contracts;
+using IdentityMicroservice.Services.Contracts;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using VehiclesFleet.DataAccess.Entities;
-using VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
-using VehiclesFleet.Repository.Contracts;
-using VehiclesFleet.Repository.Contracts.Mappers;
-using VehiclesFleet.Services.Contracts;
 
-namespace VehiclesFleet.Repository;
+namespace IdentityMicroservice.Repository;
 
 public class UserRepository : IUserRepository
     {
@@ -32,7 +31,7 @@ public class UserRepository : IUserRepository
             return tokenAsString;
         }
 
-        public async Task Register(RegisterDto registerDto)
+        public async Task<string> Register(RegisterDto registerDto)
         {
             var newUser = new User()
             {
@@ -47,6 +46,8 @@ public class UserRepository : IUserRepository
             {
                 throw new Exception($"Account already exists!");
             }
+            var tokenAsString = jwtService.GenerateToken(newUser);
+            return tokenAsString;
         }
         private async Task<User?> GetUserByEmailAsync(string email)
         {

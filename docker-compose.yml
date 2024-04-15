@@ -1,24 +1,31 @@
 ﻿version: '3.8'
 
 services:
-  vehiclesFleetMonolith:
+  identitymicroservice:
     image: vehiclesfleet-identitymicroservice
     build:
       context: .
-      dockerfile: VehiclesFleet/Dockerfile
+      dockerfile: IdentityMicroservice/Dockerfile
     ports:
-      - "81:80"
-      - "3006:443"
+      - "3000:80"
     depends_on:
       - database
+    networks:
+      vehiclesfleet-logger-net:
+
   database:
     image: "mcr.microsoft.com/mssql/server"
     environment:
       SA_PASSWORD: mHDyhpoc4336HXuF0GYO
       ACCEPT_EULA: Y
       MSSQL_PID: Express
-      MSSQL_TCP_PORT: 1435
+      MSSQL_TCP_PORT: 1440
       MSSQL_DATABASE: VehiclesFleet
       MSSQL_PASSWORD: mHDyhpoc4336HXuF0GYO
     ports:
-      - "1435:1435"
+      - "1440:1440"
+    networks:
+      vehiclesfleet-logger-net:
+networks:
+  vehiclesfleet-logger-net:
+    external: true

@@ -1,11 +1,11 @@
-﻿using VehiclesFleet.BusinessLogic.Contracts;
-using VehiclesFleet.Domain.Dtos.IdentityControllerDtos;
-using VehiclesFleet.Domain.Models.Identity;
-using VehiclesFleet.Domain.Models.Logger;
-using VehiclesFleet.Repository.Contracts;
-using VehiclesFleet.Services.Contracts.Logger;
+﻿using IdentityMicroservice.BusinessLogic.Contracts;
+using IdentityMicroservice.Domain.Dtos.IdentityControllerDtos;
+using IdentityMicroservice.Domain.Models.Identity;
+using IdentityMicroservice.Repository.Contracts;
+using IdentityMicroservice.Services.Contracts;
+using Microsoft.Extensions.Logging;
 
-namespace VehiclesFleet.BusinessLogic;
+namespace IdentityMicroservice.BusinessLogic;
 
 public class UserBusinessLogic : IUserBusinessLogic
 {
@@ -27,20 +27,16 @@ public class UserBusinessLogic : IUserBusinessLogic
     {
         await loginDto.ValidateAndThrow();
         var token = await userRepository.Login(loginDto);
-        await loggerService.LogInfo(new LoggerMessage
-        {
-            Message = "User logged in!"
-        }, token);
+        
+        await loggerService.LogInfo($"User logged in!",token);
         return token;
     }
 
     public async Task Register(RegisterDto registerDto)
     {
         await registerDto.ValidateAndThrow();
-        await userRepository.Register(registerDto);
-        await loggerService.LogInfo(new LoggerMessage
-        {
-            Message = "New user was registered successfully!"
-        }, null);
+        var token = await userRepository.Register(registerDto);
+        
+        await loggerService.LogInfo($"New user was registered successfully!","token");
     }
 }

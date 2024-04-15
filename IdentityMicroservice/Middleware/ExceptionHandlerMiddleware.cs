@@ -1,12 +1,10 @@
 ﻿using System.Net;
 using System.Text;
 using System.Text.Json;
+using IdentityMicroservice.Domain.CustomExceptions;
+using IdentityMicroservice.Services.Contracts;
 using Microsoft.AspNetCore.Http.Extensions;
-using VehiclesFleet.Domain.CustomExceptions;
-using VehiclesFleet.Services.Contracts.Logger;
-using LoggerMessage = VehiclesFleet.Domain.Models.Logger.LoggerMessage;
-
-namespace VehiclesFleet.Middleware;
+namespace IdentityMicroservice.Middleware;
 
 public class ExceptionHandlerMiddleware
 {
@@ -77,9 +75,6 @@ public class ExceptionHandlerMiddleware
 
         result.AppendLine($"Exception: {ex}");
 
-        await loggerService.LogError(new LoggerMessage
-        {
-            Message = result.ToString()
-        });
+        await loggerService.LogError(result.ToString(),"");
     }
 }
